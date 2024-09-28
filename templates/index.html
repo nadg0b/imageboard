@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} ImageBoard {% endblock %}</h1>
+{% for board in boards %}
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="img/{{ board['img_url'] }}" class="img-fluid rounded-start">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <a href="{{ url_for('post', post_id=post['id']) }}">
+                    <h2>{{ post['title'] }}</h2>
+                </a>
+                <span class="badge badge-primary">№{{ post['id'] }}</span>
+                <p class="card-text">{{ post['content'] }}</p>
+                <p class="card-text"><small class="text-body-secondary"><span class="badge badge-primary">
+                            {{ post['created'] }}</span></small>
+                </p>
+                <a href="{{ url_for('edit', id=post['id']) }}">
+                    <span class="badge text-bg-warning">Edit</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
