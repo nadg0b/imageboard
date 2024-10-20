@@ -2,13 +2,14 @@ from app.extensions import db
 from datetime import datetime, timezone
 
 
-class Thread(db.Model):
-    __tablename__ = "thread"
+class Post(db.Model):
+    __tablename__ = "post"
 
     id = db.Column(db.Integer, 
                    primary_key=True)
     
-    title = db.Column(db.String)
+    content = db.Column(db.String, 
+                        nullable=False)
     
     img_url = db.Column(db.String, 
                         nullable=False, 
@@ -18,15 +19,9 @@ class Thread(db.Model):
                         nullable=False, 
                         default=datetime.now(timezone.utc))
     
-    from_board = db.Column(db.Integer,
-                           db.ForeignKey("board.id"), 
-                           nullable=False)
+    from_thread = db.Column(db.Integer,
+                            db.ForeignKey("thread.id"), 
+                            nullable=False)
     
-    board = db.relationship("Board", 
-                            back_populates="threads")
-    
-    posts = db.relationship("Post",
-                            back_populates="thread")
-        
-
-    
+    thread = db.relationship("Thread", 
+                            back_populates="posts")

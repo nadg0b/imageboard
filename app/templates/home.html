@@ -1,216 +1,47 @@
-<!doctype html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Imageboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</head>
+{% block title %} {{title}} {% endblock %}
 
-<body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Imageboard</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Boards</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Top threads</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Link
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container pt-5 pb-5">
-        <h1>Welcome to my Imageboard</h1>
-        <hr>
-        <div class="container pt-5 pb-5">
-            <h3>Boards:</h3>
-            <div class="row row-cols-1 row-cols-md-2 g-3">
-                <div class="col d-flex justify-content-center">
-                    <div class="card mb-3" style="max-width: 840px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="static/images/default_image.jpg" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                    <div class="container d-flex justify-content-between pt-3">
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                                ago</small></p>
-                                        <button type="button" class="btn btn-primary">Browse <i
-                                                class="bi bi-arrow-right"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{% block content %}
+<h1>{{header}}</h1>
+<div class="container pt-5 pb-5">
+    <h3>Boards:</h3>
+    <div class="row row-cols-1 row-cols-md-2 g-3">
+        {% for board in boards %}
+        <div class="col d-flex justify-content-center">
+            <div class="card mb-3" style="max-width: 840px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="../static/images/{{board.img_url}}" class="img-fluid rounded-start" alt="...">
                     </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card mb-3" style="max-width: 840px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="static/images/default_image.jpg" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                    <div class="container d-flex justify-content-between pt-3">
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                                ago</small></p>
-                                        <button type="button" class="btn btn-primary">Browse <i
-                                                class="bi bi-arrow-right"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card mb-3" style="max-width: 840px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="static/images/default_image.jpg" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                    <div class="container d-flex justify-content-between pt-3">
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                                ago</small></p>
-                                        <button type="button" class="btn btn-primary">Browse <i
-                                                class="bi bi-arrow-right"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card mb-3" style="max-width: 840px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="static/images/default_image.jpg" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                    <div class="container d-flex justify-content-between pt-3">
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                                ago</small></p>
-                                        <button type="button" class="btn btn-primary">Browse <i
-                                                class="bi bi-arrow-right"></i></button>
-                                    </div>
-                                </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{board.title}}</h5>
+                            <p class="card-text">{{board.description}}</p>
+                            <div class="container d-flex justify-content-between pt-3">
+                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                        ago</small></p>
+                                <a href="/{{board.title}}">Browse
+                                    <button type="button" class="btn btn-primary"> <i
+                                            class="bi bi-arrow-right"></i></button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <h3>Random pic:</h3>
-        <div class="container pt-5 pb-5 d-flex justify-content-center">
-            <div class="card" style="width: 36rem;">
-                <img src="static/images/default_image.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <a href="#" class="card-link">Dive into thread</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button fs-1" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseOne" style>
-                        Stats:
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                    <div class="accordion-body d-flex justify-content-evenly">
-                        <table class="table" style="max-width: 50%">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Total boards:</th>
-                                    <td>4</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Total threads:</th>
-                                    <td>64</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Average replies:</th>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Total images:</th>
-                                    <td>128</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Users online:</th>
-                                    <td>0</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <img src="static/images/soystats.gif" class="img-fluid rounded-start" alt="...">
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        {% endfor %}
     </div>
+</div>
 
-    <nav class="navbar navbar-fixed-bottom bg-body-tertiary bg-dark border-bottom border-body mt-auto"
-        data-bs-theme="dark">
-        <div class="container-fluid">
-            <span class="navbar-text">
-                Imageboard made with Flask
-            </span>
+<h3>Random pic:</h3>
+<div class="container pt-5 pb-5 d-flex justify-content-center">
+    <div class="card" style="width: 36rem;">
+        <img src="../static/images/{{random_pic}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <a href="/{{thread_url}}" class="card-link">Dive into thread</a>
         </div>
-    </nav>
-
-</body>
-
-</html>
+    </div>
+</div>
+{% endblock %}

@@ -1,210 +1,101 @@
-<!doctype html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Imageboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</head>
-
-<body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Imageboard</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Boards</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Top threads</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Link
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container pt-5 pb-5">
-        <h1>Board title</h1>
-        <hr>
-        <div class="container pt-5 pb-5">
-            <h3>Threads:</h3>
-            <div class="row row-cols-2 row-cols-md-4 g-5">
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                    <div class="card h-100" style="width: 30rem;">
-                        <img src="static/images/default_image.jpg" class="card-img-top img-fluid" alt="...">
-                        <div class="card-body p-4">
-                            <h5 class="card-title">Thread title</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eveniet
-                                reiciendis quam sint fuga autem nulla officia reprehenderit necessitatibus
-                                exercitationem
-                                quos officiis, tempora ab, labore atque? Quasi porro aut harum.</p>
-                            <div class="container d-flex align-items-center pt-3">
-                                <span class="badge rounded-pill text-bg-dark me-auto"
-                                    style="max-height: min-content;"><i class="bi bi-calendar3"></i> created:
-                                    HH:MM DD.MM.YYYY</span>
-                                <button type="button" class="btn btn-outline-danger">Let me in</button>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-evenly">
-                            <small class="text-body-secondary fst-italic">id: XXXXXXXX</small>
-                            <small class="text-body-secondary fst-italic">replies: XXXX</small>
-                            <small class="text-body-secondary fst-italic">images: XXXX</small>
-                        </div>
+{% block content %}
+<div class="container pt-5 pb-5">
+    <h3>Threads:</h3>
+    <div class="row row-cols-2 row-cols-md-4 g-5">
+        <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+            <div class="card h-100" style="width: 30rem;">
+                <img src="../static/images/default_image.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body p-4">
+                    <h5 class="card-title">Thread title</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eveniet
+                        reiciendis quam sint fuga autem nulla officia reprehenderit necessitatibus
+                        exercitationem
+                        quos officiis, tempora ab, labore atque? Quasi porro aut harum.</p>
+                    <div class="container d-flex align-items-center pt-3">
+                        <span class="badge rounded-pill text-bg-dark me-auto" style="max-height: min-content;"><i
+                                class="bi bi-calendar3"></i> created:
+                            HH:MM DD.MM.YYYY</span>
+                        <button type="button" class="btn btn-outline-danger">Let me in</button>
                     </div>
                 </div>
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                    <div class="card h-100" style="width: 30rem;">
-                        <img src="static/images/default_image.jpg" class="card-img-top img-fluid" alt="...">
-                        <div class="card-body p-4">
-                            <h5 class="card-title">Thread title</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eveniet
-                                reiciendis quam sint fuga autem nulla officia reprehenderit necessitatibus
-                                exercitationem
-                                quos officiis, tempora ab, labore atque? Quasi porro aut harum.</p>
-                            <div class="container d-flex align-items-center pt-3">
-                                <span class="badge rounded-pill text-bg-dark me-auto"
-                                    style="max-height: min-content;"><i class="bi bi-calendar3"></i> created:
-                                    HH:MM DD.MM.YYYY</span>
-                                <button type="button" class="btn btn-outline-danger">Let me in</button>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-evenly">
-                            <small class="text-body-secondary fst-italic">id: XXXXXXXX</small>
-                            <small class="text-body-secondary fst-italic">replies: XXXX</small>
-                            <small class="text-body-secondary fst-italic">images: XXXX</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                    <div class="card h-100" style="width: 30rem;">
-                        <img src="static/images/default_image.jpg" class="card-img-top img-fluid" alt="...">
-                        <div class="card-body p-4">
-                            <h5 class="card-title">Thread title</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eveniet
-                                reiciendis quam sint fuga autem nulla officia reprehenderit necessitatibus
-                                exercitationem
-                                quos officiis, tempora ab, labore atque? Quasi porro aut harum.</p>
-                            <div class="container d-flex align-items-center pt-3">
-                                <span class="badge rounded-pill text-bg-dark me-auto"
-                                    style="max-height: min-content;"><i class="bi bi-calendar3"></i> created:
-                                    HH:MM DD.MM.YYYY</span>
-                                <button type="button" class="btn btn-outline-danger">Let me in</button>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-evenly">
-                            <small class="text-body-secondary fst-italic">id: XXXXXXXX</small>
-                            <small class="text-body-secondary fst-italic">replies: XXXX</small>
-                            <small class="text-body-secondary fst-italic">images: XXXX</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                    <div class="card h-100" style="width: 30rem;">
-                        <img src="static/images/default_image.jpg" class="card-img-top img-fluid" alt="...">
-                        <div class="card-body p-4">
-                            <h5 class="card-title">Thread title</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eveniet
-                                reiciendis quam sint fuga autem nulla officia reprehenderit necessitatibus
-                                exercitationem
-                                quos officiis, tempora ab, labore atque? Quasi porro aut harum.</p>
-                            <div class="container d-flex align-items-center pt-3">
-                                <span class="badge rounded-pill text-bg-dark me-auto"
-                                    style="max-height: min-content;"><i class="bi bi-calendar3"></i> created:
-                                    HH:MM DD.MM.YYYY</span>
-                                <button type="button" class="btn btn-outline-danger">Let me in</button>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-evenly">
-                            <small class="text-body-secondary fst-italic">id: XXXXXXXX</small>
-                            <small class="text-body-secondary fst-italic">replies: XXXX</small>
-                            <small class="text-body-secondary fst-italic">images: XXXX</small>
-                        </div>
-                    </div>
+                <div class="card-footer d-flex justify-content-evenly">
+                    <small class="text-body-secondary fst-italic">id: XXXXXXXX</small>
+                    <small class="text-body-secondary fst-italic">replies: XXXX</small>
+                    <small class="text-body-secondary fst-italic">images: XXXX</small>
                 </div>
             </div>
         </div>
-
-        <div class="accordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button fs-1" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseOne" style>
-                        <i class="bi bi-bar-chart"></i> Stats:
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                    <div class="accordion-body d-flex justify-content-evenly">
-                        <table class="table" style="max-width: 50%">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Total boards:</th>
-                                    <td>4</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Total threads:</th>
-                                    <td>64</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Average replies:</th>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Total images:</th>
-                                    <td>128</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Users online:</th>
-                                    <td>0</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <img src="static/images/soystats.gif" class="img-fluid rounded-start" alt="...">
+        <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+            <div class="card h-100" style="width: 30rem;">
+                <img src="../static/images/default_image.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body p-4">
+                    <h5 class="card-title">Thread title</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eveniet
+                        reiciendis quam sint fuga autem nulla officia reprehenderit necessitatibus
+                        exercitationem
+                        quos officiis, tempora ab, labore atque? Quasi porro aut harum.</p>
+                    <div class="container d-flex align-items-center pt-3">
+                        <span class="badge rounded-pill text-bg-dark me-auto" style="max-height: min-content;"><i
+                                class="bi bi-calendar3"></i> created:
+                            HH:MM DD.MM.YYYY</span>
+                        <button type="button" class="btn btn-outline-danger">Let me in</button>
                     </div>
+                </div>
+                <div class="card-footer d-flex justify-content-evenly">
+                    <small class="text-body-secondary fst-italic">id: XXXXXXXX</small>
+                    <small class="text-body-secondary fst-italic">replies: XXXX</small>
+                    <small class="text-body-secondary fst-italic">images: XXXX</small>
                 </div>
             </div>
         </div>
-
+        <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+            <div class="card h-100" style="width: 30rem;">
+                <img src="../static/images/default_image.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body p-4">
+                    <h5 class="card-title">Thread title</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eveniet
+                        reiciendis quam sint fuga autem nulla officia reprehenderit necessitatibus
+                        exercitationem
+                        quos officiis, tempora ab, labore atque? Quasi porro aut harum.</p>
+                    <div class="container d-flex align-items-center pt-3">
+                        <span class="badge rounded-pill text-bg-dark me-auto" style="max-height: min-content;"><i
+                                class="bi bi-calendar3"></i> created:
+                            HH:MM DD.MM.YYYY</span>
+                        <button type="button" class="btn btn-outline-danger">Let me in</button>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-evenly">
+                    <small class="text-body-secondary fst-italic">id: XXXXXXXX</small>
+                    <small class="text-body-secondary fst-italic">replies: XXXX</small>
+                    <small class="text-body-secondary fst-italic">images: XXXX</small>
+                </div>
+            </div>
+        </div>
+        <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+            <div class="card h-100" style="width: 30rem;">
+                <img src="../static/images/default_image.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body p-4">
+                    <h5 class="card-title">Thread title</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eveniet
+                        reiciendis quam sint fuga autem nulla officia reprehenderit necessitatibus
+                        exercitationem
+                        quos officiis, tempora ab, labore atque? Quasi porro aut harum.</p>
+                    <div class="container d-flex align-items-center pt-3">
+                        <span class="badge rounded-pill text-bg-dark me-auto" style="max-height: min-content;"><i
+                                class="bi bi-calendar3"></i> created:
+                            HH:MM DD.MM.YYYY</span>
+                        <button type="button" class="btn btn-outline-danger">Let me in</button>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-evenly">
+                    <small class="text-body-secondary fst-italic">id: XXXXXXXX</small>
+                    <small class="text-body-secondary fst-italic">replies: XXXX</small>
+                    <small class="text-body-secondary fst-italic">images: XXXX</small>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <nav class="navbar navbar-fixed-bottom bg-body-tertiary bg-dark border-bottom border-body mt-auto"
-        data-bs-theme="dark">
-        <div class="container-fluid">
-            <span class="navbar-text">
-                Imageboard made with Flask
-            </span>
-        </div>
-    </nav>
-
-</body>
-
-</html>
+</div>
+{% endblock %}
